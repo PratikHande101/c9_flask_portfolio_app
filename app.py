@@ -28,7 +28,7 @@ def add_numbers_post():
   	      print(request.form['text'].split())
   	      total = 0
   	      try:
-  	      	for str_num in request.form['text'].split():
+  	      	for str_num in request.form['text'].split('+'):
   	      		total += int(str_num)
   	      	return render_template('add_numbers.html', result=str(total))
   	      except ValueError:
@@ -47,7 +47,7 @@ def shopping_list_post():
           
           shop_list = []
           try:
-            for item in request.form['text'].split('+'):
+            for item in request.form['text'].split():
               
               shop_list.append(item)
 
