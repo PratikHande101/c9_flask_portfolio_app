@@ -47,7 +47,7 @@ def shopping_list_post():
           
           shop_list = []
           try:
-            for item in request.form['text'].split():
+            for item in request.form['text'].split('+'):
               
               shop_list.append(item)
 
@@ -55,7 +55,7 @@ def shopping_list_post():
               
             return render_template('shopping_list.html', result="\n".join([str(item) for item in shop_list]))
           except ValueError:
-            return "Easy now! Let's keep it simple! Just words with a space between them"
+            return "Easy now! Let's keep it simple! Just words with a + between them"
           
   	      
 @app.route('/time', methods=['GET','POST'])
